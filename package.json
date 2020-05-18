@@ -1,0 +1,21 @@
+{
+  "name": "adv.api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./bin/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "mongoose": "^5.9.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
