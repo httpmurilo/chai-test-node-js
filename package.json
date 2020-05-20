@@ -12,8 +12,10 @@
     "body-parser": "^1.19.0",
     "debug": "^4.1.1",
     "express": "^4.17.1",
+    "express-pino-logger": "^5.0.0",
     "http": "0.0.1-security",
-    "mongoose": "^5.9.14"
+    "mongoose": "^5.9.14",
+    "pino": "^6.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

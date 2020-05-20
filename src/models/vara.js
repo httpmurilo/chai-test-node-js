@@ -14,10 +14,9 @@ const schema = new Schema({
         required: false,
     },
     endereco: {
-        type: Boolean,
+        type: String,
         required: true,
     }
 });
 
 module.exports = mongoose.model('Vara', schema);
-
