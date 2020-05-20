@@ -10,12 +10,12 @@ exports.get = async() => {
         return res;
 }
 
-exports.getById = async (id) =>{
+exports.buscarPorId = async (id) =>{
    const res= await Vara
         .findById(id);
     return res;
 }
-exports.getPorNome = async (nome) =>{
+exports.buscarPorNome = async (nome) =>{
     const res =  await Vara
         .find({
             nome: nome,
@@ -31,3 +31,15 @@ exports.delete = async (id) =>{
     await Vara
         .findOneAndRemove(id)
 }
+
+exports.atualizar = async (id,data) => {
+    await  Vara
+         .findByIdAndUpdate(id,{
+             $set:{
+             nome: data.nome,
+             descricao: data.descricao,
+             endereco: data.endereco,
+         }
+     });
+ }
+

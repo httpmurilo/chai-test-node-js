@@ -1,6 +1,9 @@
 
 {
-    "VARA_VALIDA":{"nome":"terceira Vara","descricao":"terceira Vara Civel","endereco":"rua jatuarana"},
-    "VARA_INVALIDA":{"nome":null,"descricao":"terceira Vara Civel","endereco":"rua jatuarana"}
+    "VARA_VALIDA":{"nome":"sexta Vara","descricao":"sexta Vara Civel","endereco":"rua jatuarana"},
+    "VARA_INVALIDA":{"nome":null,"descricao":"terceira Vara Civel","endereco":"rua jatuarana"},
+    "VARA_ATUALIZADA":{"nome":"sexta teste Vara Cível","descricao":"sexta Vara Civel","endereco":"rua lima"},
+    "VARA_ID_ATUALIZACAO":{"id":"5ec5908f8246a6148943e47a"}
+
 }
 

@@ -14,9 +14,9 @@ exports.get = async(req, res, next) => {
         });
     }
 }
-exports.getById = async(req, res, next) => {
+exports.BuscarPorId = async(req, res, next) => {
     try {
-        var data = await repository.getById(req.params.id);
+        var data = await repository.BuscarPorId(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -24,9 +24,9 @@ exports.getById = async(req, res, next) => {
         });
     }
 }
-exports.getPorNome = async(req, res, next) => {
+exports.buscarPorNome = async(req, res, next) => {
     try {
-        const data = await repository.getPorNome(req.params.nome);
+        const data = await repository.buscarPorNome(req.params.nome);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -40,7 +40,6 @@ exports.post = async (req, res, next) =>{
     contract.hasMinLen(req.body.nome, 3, 'O nome deve conter pelo menos 3 caracteres');
     contract.hasMinLen(req.body.endereco, 3, 'O endereco deve conter pelo menos 3 caracteres');
 
-    // Se os dados forem inválidos
     if (!contract.isValid()) {
         res.status(400).send(contract.errors()).end();
         return;
@@ -63,6 +62,19 @@ exports.delete = async(req, res, next) => {
         await repository.delete(req.params.id)
         res.status(200).send({
             message: 'Vara removido com sucesso!'
+        });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+};
+
+exports.atualizar = async(req, res, next) => {
+    try {
+        await repository.atualizar(req.params.id, req.body);
+        res.status(200).send({
+            message: 'Vara atualizada com sucesso!'
         });
     } catch (e) {
         res.status(500).send({

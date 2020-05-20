@@ -18,6 +18,7 @@ const Vara = require('./models/vara');
 //rota
 const varaRouter = require('./routers/vara-router');
 const indexRouter = require('./routers/index-router');
+const tipoPendenciaRouter = require('./routers/tipoPendencia-router');
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -31,5 +32,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/',indexRouter);
 app.use('/vara',varaRouter);
+app.use('/tipoPendencia',tipoPendenciaRouter);
 
 module.exports = app;

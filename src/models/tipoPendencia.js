@@ -21,6 +21,10 @@ const schema = new Schema({
         type: Boolean,
         required: false,
     },
+    podeSerAdiada: {
+        type: Boolean,
+        required: false,
+    },
 });
 
 module.exports = mongoose.model('TipoPendencia', schema);

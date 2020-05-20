@@ -2,13 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/vara-controller');
+const controller = require('../controllers/tipoPendencia-controller');
 
 router.get('/', controller.get);
-router.get('/:id', controller.BuscarPorId);
-router.get('/buscarPor/:nome', controller.buscarPorNome);
+router.get('/:id', controller.buscarPorId);
 router.post('/', controller.post);
-router.delete('/', controller.delete);
+router.delete('/:id', controller.delete);
 router.put('/:id', controller.atualizar);
 
 
