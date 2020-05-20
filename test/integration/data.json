@@ -1,0 +1,6 @@
+
+{
+    "VARA_VALIDA":{"nome":"terceira Vara","descricao":"terceira Vara Civel","endereco":"rua jatuarana"},
+    "VARA_INVALIDA":{"nome":null,"descricao":"terceira Vara Civel","endereco":"rua jatuarana"}
+}
+
