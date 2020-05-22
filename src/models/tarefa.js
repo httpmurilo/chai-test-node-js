@@ -4,23 +4,34 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
+    id: {
+        type: Number,
+    },
     nome: {
         type: String,
         required: true,
-        unique: true
     },
     descricao: {
         type: String,
         required: false,
     },
-    endereco: {
+    alocadoPara: {
         type: String,
         required: true,
     },
-    localidade: {
+    criadoPor: {
         type: String,
+        required : true,
+    },
+    dataDeCriacao: {
+        type: Date,
         required: true,
+    },
+    dataDeEntrega: {
+        type: Date,
+        required: false,
     }
 });
 
-module.exports = mongoose.model('Vara', schema);
+
+module.exports = mongoose.model('Tarefa',schema);

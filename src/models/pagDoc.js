@@ -13,9 +13,13 @@ const schema = new Schema({
         type: String,
         required: true,
     },
-    Cliente: {
+    cliente: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Cliente'
+    },
+    tipoDocumento: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'TipoDocumento'
     },
 });
 

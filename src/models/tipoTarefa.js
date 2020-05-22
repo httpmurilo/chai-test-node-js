@@ -7,20 +7,21 @@ const schema = new Schema({
     nome: {
         type: String,
         required: true,
-        unique: true
     },
-    descricao: {
+    severidade: {
         type: String,
         required: false,
+        enum:['alta', 'média','baixa','indefinida'],
+        default:'indefinida'
     },
-    endereco: {
-        type: String,
+    temPrazo: {
+        type: Boolean,
         required: true,
     },
-    localidade: {
-        type: String,
+    podeSerAdiada: {
+        type: Boolean,
         required: true,
     }
 });
 
-module.exports = mongoose.model('Vara', schema);
+module.exports = mongoose.model('TipoTarefa', schema);
