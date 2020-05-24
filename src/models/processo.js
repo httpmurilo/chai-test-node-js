@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     ordenador: {
-        type: Number    
+        type: Number,
+        unique: true  
     },
     numero: {
         type: String,
@@ -27,7 +28,9 @@ const schema = new Schema({
     },
     processoParte: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'ProcessoParte'
+        ref: 'ProcessoParte',
+        //retirar false e setar como true, teste
+        required : false
     },
     vara: {
         type: mongoose.Schema.Types.ObjectId,
@@ -35,5 +38,5 @@ const schema = new Schema({
     },
 });
 
-
+schema.plugin(AutoIncrement,{inc_field: 'ordenador'});
 module.exports = mongoose.model('Processo',schema);

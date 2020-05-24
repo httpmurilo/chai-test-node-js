@@ -6,13 +6,13 @@ const ProcessoParte = mongoose.model('ProcessoParte');
 
 exports.buscar = async() => {
    const res = await ProcessoParte.find({
-            }, 'id nome polo ');
+            },'');
         return res;
 }
 
 exports.buscarPorId = async (id) =>{
    const res= await ProcessoParte
-        .findById(id);
+        .findOne(ordenador);
     return res;
 }
 

@@ -20,7 +20,7 @@ const PagDoc = require('./models/pagDoc');
 const tipoTarefa = require('./models/tipoTarefa');
 const tarefa = require('./models/tarefa');
 const ProcessoParte = require('./models/ProcessoParte')
-
+const Processo = require('./models/Processo');
 
 
 const varaRouter = require('./routers/vara-router');
@@ -32,7 +32,7 @@ const PagDocRouter = require('./routers/pagdoc-router');
 const tipoTarefaRouter = require('./routers/tipo-tarefa-router');
 const TarefaRouter = require('./routers/tarefa-router');
 const ParteProcessoRouter = require('./routers/processo-parte-router');
-
+const ProcessoRouter = require('./routers/processo-router');
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -53,5 +53,6 @@ app.use('/documentos',PagDocRouter);
 app.use('/tipoTarefas',tipoTarefaRouter);
 app.use('/tarefas',TarefaRouter);
 app.use('/partesProcesso',ParteProcessoRouter);
+app.use('/processos', ProcessoRouter);
 
 module.exports = app;

@@ -14,7 +14,7 @@ exports.buscar = async(req, res, next) => {
         });
     }
 }
-exports.buscarPorId = async(req, res, next) => {
+exports.buscarPorNumeroOrndeador = async(req, res, next) => {
     try {
         var data = await repository.buscarPorId(req.params.id);
         res.status(200).send(data);
@@ -26,7 +26,7 @@ exports.buscarPorId = async(req, res, next) => {
 }
 exports.adicionar = async (req, res, next) =>{
     let contract = new ValidationContract();
-    contract.hasMinLen(req.body.nome, 3, 'O nome do cliente deve conter pelo menos 3 caracteres');
+    contract.hasMinLen(req.body.nome, 3, 'O nome da parte deve conter pelo menos 3 caracteres');
 
     if (!contract.isValid()) {
         res.status(400).send(contract.errors()).end();
