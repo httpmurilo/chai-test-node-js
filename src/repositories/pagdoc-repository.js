@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const PagDoc = mongoose.model('PagDoc');
 
 
-exports.get = async() => {
+exports.buscar = async() => {
    const res = await PagDoc.find({}, 'nomeDocumento blob')
             .populate('Cliente', 'nome')
     return res;
@@ -16,7 +16,7 @@ exports.buscarPorId = async (id) =>{
     return res;
 }
 
-exports.create = async (data) => {
+exports.adicionar = async (data) => {
     var pag = new PagDoc(data);
     await pag.save();
 }

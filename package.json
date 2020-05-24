@@ -16,6 +16,7 @@
     "express-pino-logger": "^5.0.0",
     "http": "0.0.1-security",
     "mongoose": "^5.9.14",
+    "mongoose-sequence": "^5.2.2",
     "pino": "^6.2.1",
     "sendgrid": "^2.0.0"
   },

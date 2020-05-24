@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const TipoDocumento = mongoose.model('TipoDocumento');
 
 
-exports.get = async() => {
+exports.buscar = async() => {
    const res = await TipoDocumento.find({
             }, 'nome');
         return res;
@@ -23,7 +23,7 @@ exports.buscarPorNome = async (titulo) =>{
         return res;
  }
 
-exports.create = async (data) => {
+exports.adicionar = async (data) => {
     var tipo = new TipoDocumento(data);
     await tipo.save();
 }

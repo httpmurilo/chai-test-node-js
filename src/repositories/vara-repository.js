@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Vara = mongoose.model('Vara');
 
 
-exports.get = async() => {
+exports.buscar = async() => {
    const res = await Vara.find({
             }, 'nome descricao endereco');
         return res;
@@ -23,11 +23,11 @@ exports.buscarPorNome = async (nome) =>{
         return res;
  }
 
-exports.create = async (data) => {
+exports.adicionar = async (data) => {
     var vara = new Vara(data);
     await vara.save();
 }
-exports.delete = async (id) =>{
+exports.deletar = async (id) =>{
     await Vara
         .findOneAndRemove(id)
 }

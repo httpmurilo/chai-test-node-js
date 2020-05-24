@@ -1,37 +1,36 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const TipoTarefa = mongoose.model('TipoTarefa');
+const ProcessoParte = mongoose.model('ProcessoParte');
 
 
 exports.buscar = async() => {
-   const res = await TipoTarefa.find({
-            }, 'nome severidade temPrazo podeSerAdiada ');
+   const res = await ProcessoParte.find({
+            }, 'id nome polo ');
         return res;
 }
 
 exports.buscarPorId = async (id) =>{
-   const res = await TipoTarefa
+   const res= await ProcessoParte
         .findById(id);
     return res;
 }
+
 exports.adicionar = async (data) => {
-    var tipo = new TipoTarefa(data);
-    await tipo.save();
+    var parte = new ProcessoParte(data);
+    await parte.save();
 }
 exports.deletar = async (id) =>{
-    await TipoTarefa
+    await ProcessoParte
         .findOneAndRemove(id)
 }
 
 exports.atualizar = async (id,data) => {
-    await  TipoTarefa
+    await  ProcessoParte
          .findByIdAndUpdate(id,{
              $set:{
              nome: data.nome,
-             severidade: data.severidade,
-             temPrazo: data.temPrazo,
-             podeSerAdiada: data.podeSerAdiada,
+             polo: data.polo,
          }
      });
  }

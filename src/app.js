@@ -19,6 +19,7 @@ const Cliente= require('./models/cliente');
 const PagDoc = require('./models/pagDoc');
 const tipoTarefa = require('./models/tipoTarefa');
 const tarefa = require('./models/tarefa');
+const ProcessoParte = require('./models/ProcessoParte')
 
 
 
@@ -30,6 +31,7 @@ const ClienteRouter = require('./routers/cliente-router');
 const PagDocRouter = require('./routers/pagdoc-router');
 const tipoTarefaRouter = require('./routers/tipo-tarefa-router');
 const TarefaRouter = require('./routers/tarefa-router');
+const ParteProcessoRouter = require('./routers/processo-parte-router');
 
 
 app.use(function (req, res, next) {
@@ -50,5 +52,6 @@ app.use('/clientes', ClienteRouter);
 app.use('/documentos',PagDocRouter);
 app.use('/tipoTarefas',tipoTarefaRouter);
 app.use('/tarefas',TarefaRouter);
+app.use('/partesProcesso',ParteProcessoRouter);
 
 module.exports = app;

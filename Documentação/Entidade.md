@@ -16,7 +16,7 @@ o cliente pode ter pendencia de documento,financeira.
 
 6. tipoTarefa - Manter os tipos da tarefa para seleção no card tarefas
 
-
+7. tarefa : Manter, dashboard de atividades
 
 Serviços :
 email-service - utilizando para push

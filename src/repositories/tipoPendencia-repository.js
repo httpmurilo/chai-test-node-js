@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const TipoPendenca = mongoose.model('TipoPendencia');
 
 
-exports.get = async() => {
+exports.buscar = async() => {
    const res = await TipoPendenca.find({
             }, 'titulo descricao pendenciaDeDocumentos pendenciaFinanceira podeSerAdiada');
         return res;
@@ -23,7 +23,7 @@ exports.buscarPorNome = async (titulo) =>{
         return res;
  }
 
-exports.create = async (data) => {
+exports.adicionar = async (data) => {
     var tipo = new TipoPendenca(data);
     await tipo.save();
 }

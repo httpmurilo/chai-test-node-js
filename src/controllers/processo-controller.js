@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Cliente = mongoose.model('Cliente');
+const Processo = mongoose.model('Processo');
 
 
 exports.buscar = async() => {
@@ -23,7 +23,7 @@ exports.buscarPornome = async (nome) =>{
         return res;
  }
 
-exports.adicionar = async (data) => {
+exports.create = async (data) => {
     var cliente = new Cliente(data);
     await cliente.save();
 }

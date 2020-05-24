@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Cliente = mongoose.model('Cliente');
 
 
-exports.buscar = async() => {
+exports.get = async() => {
    const res = await Cliente.find({
 }, 'nome numeroDocumento ativo ');
         return res;
@@ -23,7 +23,7 @@ exports.buscarPornome = async (nome) =>{
         return res;
  }
 
-exports.adicionar = async (data) => {
+exports.create = async (data) => {
     var cliente = new Cliente(data);
     await cliente.save();
 }

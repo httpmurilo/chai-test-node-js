@@ -1,11 +1,11 @@
-test:node:4:
-  image: node:4
+test:node:8:
+  image: node:8
   script:
-    - npm run build
+    - npm start
     - npm test
 
-test:node:7:
-  image: node:7
+test:node:12:
+  image: node:12
   script:
-    - npm run build
+    - npm tart
     - npm test

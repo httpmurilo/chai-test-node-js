@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Tarefa = mongoose.model('Tarefa');
 
 
-exports.get = async() => {
+exports.buscar = async() => {
    const res = await Tarefa.find({
             }, 'nome descricao endereco');
         return res;
@@ -16,11 +16,11 @@ exports.buscarPorId = async (id) =>{
     return res;
 }
 
-exports.create = async (data) => {
+exports.adicionar = async (data) => {
     var tarefa = new Tarefa(data);
     await tarefa.save();
 }
-exports.delete = async (id) =>{
+exports.deletar = async (id) =>{
     await Tarefa
         .findOneAndRemove(id)
 }

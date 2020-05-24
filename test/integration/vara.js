@@ -1,9 +1,9 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const VARA_VALIDA = require('./data.json').VARA_VALIDA;
-const VARA_INVALIDA = require('./data.json').VARA_INVALIDA;
-const VARA_ATUALIZADA = require('./data.json').VARA_ATUALIZADA;
-const VARA_ID_ATUALIZACAO = require('./data.json').VARA_ID_ATUALIZACAO;
+const VARA_VALIDA = require('../models/vara.json').VARA_VALIDA;
+const VARA_INVALIDA = require('../models/vara.json').VARA_INVALIDA;
+const VARA_ATUALIZADA = require('../models/vara.json').VARA_ATUALIZADA;
+const VARA_ID_ATUALIZACAO = require('../models/vara.json').VARA_ID_ATUALIZACAO;
 
 chai.use(chaiHttp);
 chai.should();
