@@ -29,7 +29,7 @@ const TipoDocumentoRouter = require('./routers/tipo-documento-router');
 const ClienteRouter = require('./routers/cliente-router');
 const PagDocRouter = require('./routers/pagdoc-router');
 const tipoTarefaRouter = require('./routers/tipo-tarefa-router');
-const tarefaRouter = require('./routers/tarefa-router');
+const TarefaRouter = require('./routers/tarefa-router');
 
 
 app.use(function (req, res, next) {
@@ -43,12 +43,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/',indexRouter);
-app.use('/vara',varaRouter);
-app.use('/tipoPendencia',tipoPendenciaRouter);
-app.use('/tipoDocumento', TipoDocumentoRouter);
+app.use('/varas',varaRouter);
+app.use('/tipoPendencias',tipoPendenciaRouter);
+app.use('/tipoDocumentos', TipoDocumentoRouter);
 app.use('/clientes', ClienteRouter);
 app.use('/documentos',PagDocRouter);
 app.use('/tipoTarefas',tipoTarefaRouter);
-app.use('/tarefas', tarefaRouter);
+app.use('/tarefas',TarefaRouter);
 
 module.exports = app;

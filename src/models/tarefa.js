@@ -27,10 +27,14 @@ const schema = new Schema({
         type: Date,
         required: true,
     },
-    dataDeEntrega: {
+    dataPrevista: {
         type: Date,
-        required: false,
-    }
+        required: true,
+    },
+    tipoTarefa: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'TipoTarefa'
+    },
 });
 
 

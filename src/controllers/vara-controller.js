@@ -4,7 +4,7 @@ const ValidationContract = require('../validators/fluent-validator');
 
 
 
-exports.get = async(req, res, next) => {
+exports.buscar = async(req, res, next) => {
     try {
         var data = await repository.get();
         res.status(200).send(data);
@@ -14,7 +14,7 @@ exports.get = async(req, res, next) => {
         });
     }
 }
-exports.BuscarPorId = async(req, res, next) => {
+exports.buscarPorId = async(req, res, next) => {
     try {
         var data = await repository.BuscarPorId(req.params.id);
         res.status(200).send(data);
@@ -35,7 +35,7 @@ exports.buscarPorNome = async(req, res, next) => {
     }
 }
 
-exports.post = async (req, res, next) =>{
+exports.adicionar = async (req, res, next) =>{
     let contract = new ValidationContract();
     contract.hasMinLen(req.body.nome, 3, 'O nome deve conter pelo menos 3 caracteres');
     contract.hasMinLen(req.body.endereco, 3, 'O endereco deve conter pelo menos 3 caracteres');
@@ -57,7 +57,7 @@ exports.post = async (req, res, next) =>{
     }
 };
 
-exports.delete = async(req, res, next) => {
+exports.deletar = async(req, res, next) => {
     try {
         await repository.delete(req.params.id)
         res.status(200).send({
