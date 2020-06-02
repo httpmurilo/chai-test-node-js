@@ -6,7 +6,7 @@ const ValidationContract = require('../validators/fluent-validator');
 
 exports.buscar = async(req, res, next) => {
     try {
-        var data = await repository.get();
+        var data = await repository.buscar();
         res.status(200).send(data);
     } catch(e){
         res.status(500).send({
@@ -33,7 +33,7 @@ exports.adicionar = async (req, res, next) =>{
         return;
     }
     try {
-        await repository.create(req.body);
+        await repository.adicionar(req.body);
         res.status(201).send({
             message: 'Cliente cadastrado co sucesso'
         });

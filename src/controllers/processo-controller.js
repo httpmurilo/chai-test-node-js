@@ -1,6 +1,5 @@
 'use strict';
 const repository = require('../repositories/processo-repository');
-const ValidationContract = require('../validators/fluent-validator');
 
 
 
@@ -24,7 +23,6 @@ exports.buscarPorId = async(req, res, next) => {
         });
     }
 }
-
 exports.adicionar = async (req, res, next) =>{
     try {
         await repository.adicionar(req.body);

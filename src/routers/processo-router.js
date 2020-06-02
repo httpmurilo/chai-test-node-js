@@ -10,5 +10,4 @@ router.post('/', controller.adicionar);
 router.delete('/:id', controller.deletar);
 router.put('/:id', controller.atualizar);
 
-
 module.exports = router;

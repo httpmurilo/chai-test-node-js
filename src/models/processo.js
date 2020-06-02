@@ -8,7 +8,6 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     ordenador: {
         type: Number,
-        unique: true  
     },
     numero: {
         type: String,
@@ -38,5 +37,5 @@ const schema = new Schema({
     },
 });
 
-schema.plugin(AutoIncrement,{inc_field: 'ordenador'});
+schema.plugin(AutoIncrement,{inc_field: 'ordenadorId'});
 module.exports = mongoose.model('Processo',schema);
