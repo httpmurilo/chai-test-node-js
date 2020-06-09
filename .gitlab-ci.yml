@@ -1,11 +1,5 @@
-test:node:8:
-  image: node:8
-  script:
-    - npm start
-    - npm test
-
 test:node:12:
   image: node:12
   script:
-    - npm tart
+    - npm start
     - npm test

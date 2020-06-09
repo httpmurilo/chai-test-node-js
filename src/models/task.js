@@ -35,4 +35,4 @@ const schema = new Schema({
 });
 
 
-module.exports = mongoose.model('Tarefa',schema);
+module.exports = mongoose.model('Task',schema);

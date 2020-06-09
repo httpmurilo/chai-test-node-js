@@ -1,44 +1,44 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Vara = mongoose.model('Vara');
+const CustomerFinancial = mongoose.model('CustomerFinancial');
 
 
 exports.get = async() => {
-   const res = await Vara.find({
-            }, 'nome descricao endereco');
+   const res = await CustomerFinancial.find({}, 'titulo descricao valorEntrada dataLancamento')
+    .populate('Customer','nome')
         return res;
 }
 
 exports.getById = async (id) =>{
-   const res= await Vara
+   const res = await CustomerFinancial
         .findById(id);
     return res;
 }
 exports.getByName = async (nome) =>{
-    const res =  await Vara
+    const res =  await CustomerFinancial
         .find({
             nome: nome,
-        }, 'nome descricao endereco');
+        }, 'nome numeroDocumento ativo ');
         return res;
  }
 
 exports.add = async (data) => {
-    var vara = new Vara(data);
-    await vara.save();
+    var cus = new CustomerFinancial(data);
+    await cus.save();
 }
 exports.delete = async (id) =>{
-    await Vara
+    await CustomerFinancial
         .findOneAndRemove(id)
 }
 
 exports.update = async (id,data) => {
-    await  Vara
+    await  CustomerFinancial
          .findByIdAndUpdate(id,{
              $set:{
              nome: data.nome,
-             descricao: data.descricao,
-             endereco: data.endereco,
+             numeroDocumento: data.numeroDocumento,
+             ativo: data.ativo
          }
      });
  }

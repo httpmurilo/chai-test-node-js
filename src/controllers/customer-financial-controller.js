@@ -1,12 +1,12 @@
 'use strict';
-const repository = require('../repositories/tarefa-repository');
+
+const repository = require('../repositories/customer-financial-repository');
 const ValidationContract = require('../validators/fluent-validator');
 
 
-
-exports.buscar = async(req, res, next) => {
+exports.get = async(req, res, next) => {
     try {
-        var data = await repository.buscar();
+        var data = await repository.get();
         res.status(200).send(data);
     } catch(e){
         res.status(500).send({
@@ -14,9 +14,9 @@ exports.buscar = async(req, res, next) => {
         });
     }
 }
-exports.buscarPorId = async(req, res, next) => {
+exports.getById = async(req, res, next) => {
     try {
-        var data = await repository.BuscarPorId(req.params.id);
+        var data = await repository.getById(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -24,14 +24,21 @@ exports.buscarPorId = async(req, res, next) => {
         });
     }
 }
-
-exports.adicionar = async (req, res, next) =>{
-    let contract = new ValidationContract();
-    contract.hasMinLen(req.body.nome, 3, 'O nome da tarefa deve conter pelo menos 3 caracteres');
+exports.getByName = async(req, res, next) => {
     try {
-        await repository.adicionar(req.body);
+        var data = await repository.getById(req.params.id);
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+exports.add = async (req, res, next) =>{
+    try {
+        await repository.add(req.body);
         res.status(201).send({
-            message: 'Tarefa cadastrada com sucesso!'
+            message: 'Cliente cadastrado co sucesso'
         });
     } catch (e) {
         console.log(e);
@@ -41,11 +48,11 @@ exports.adicionar = async (req, res, next) =>{
     }
 };
 
-exports.deletar = async(req, res, next) => {
+exports.delete = async(req, res, next) => {
     try {
         await repository.deletar(req.params.id)
         res.status(200).send({
-            message: 'Tarefa removida com sucesso!'
+            message: 'Cliente removido com sucesso!'
         });
     } catch (e) {
         res.status(500).send({
@@ -54,11 +61,11 @@ exports.deletar = async(req, res, next) => {
     }
 };
 
-exports.atualizar = async(req, res, next) => {
+exports.update = async(req, res, next) => {
     try {
         await repository.atualizar(req.params.id, req.body);
         res.status(200).send({
-            message: 'Tarefa atualizada com sucesso!'
+            message: 'Cliente foi atualizado com sucesso'
         });
     } catch (e) {
         res.status(500).send({

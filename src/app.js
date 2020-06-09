@@ -19,25 +19,25 @@ mongoose.connect(config.connectionString);
 const TipoPendencia = require('./models/tipoPendencia');
 const Vara = require('./models/vara');
 const TipoDocumento  = require('./models/tipoDocumento');
-const Cliente= require('./models/cliente');
+const Costumer= require('./models/customer');
 const PagDoc = require('./models/pagDoc');
 const tipoTarefa = require('./models/tipoTarefa');
-const tarefa = require('./models/tarefa');
+const tarefa = require('./models/task');
 const ProcessoParte = require('./models/ProcessoParte')
 const Processo = require('./models/Processo');
+const CustomerFinancial = require('./models/customerFinancial');
 
 const varaRouter = require('./routers/vara-router');
 const indexRouter = require('./routers/index-router');
 const tipoPendenciaRouter = require('./routers/tipoPendencia-router');
 const TipoDocumentoRouter = require('./routers/tipo-documento-router');
-const ClienteRouter = require('./routers/cliente-router');
+const CustomerRouter = require('./routers/cliente-router');
 const PagDocRouter = require('./routers/pagdoc-router');
 const tipoTarefaRouter = require('./routers/tipo-tarefa-router');
-const TarefaRouter = require('./routers/tarefa-router');
+const TaskRouter = require('./routers/task-router');
 const ParteProcessoRouter = require('./routers/processo-parte-router');
 const ProcessoRouter = require('./routers/processo-router');
-const QtdProcessoRouter = require('./routers/qtd-processos-router');
-
+const CostumerFinancialRouter = require('./routers/customer-financial-router');
 //arquivo do log
 // create a write stream (in append mode)
 const  accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
@@ -63,12 +63,12 @@ app.use('/',indexRouter);
 app.use('/varas',varaRouter);
 app.use('/tipoPendencias',tipoPendenciaRouter);
 app.use('/tipoDocumentos', TipoDocumentoRouter);
-app.use('/clientes', ClienteRouter);
+app.use('/customer', CustomerRouter);
 app.use('/documentos',PagDocRouter);
 app.use('/tipoTarefas',tipoTarefaRouter);
-app.use('/tarefas',TarefaRouter);
+app.use('/task',TaskRouter);
 app.use('/partesProcesso',ParteProcessoRouter);
 app.use('/processos', ProcessoRouter);
-app.use('/qtdProcesso',QtdProcessoRouter);
+app.use('/customerFinancial',CostumerFinancialRouter);
 
 module.exports = app;

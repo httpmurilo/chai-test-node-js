@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/tarefa-controller');
+const controller = require('../controllers/task-controller');
 
 router.get('/', controller.buscar);
 router.get('/:id', controller.buscarPorId);
