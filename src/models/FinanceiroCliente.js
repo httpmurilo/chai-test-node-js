@@ -17,7 +17,7 @@ const schema = new Schema({
     },
     cliente: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Customer',
+        ref: 'Cliente',
         required : true
     },
     valorEntrada: {
@@ -26,8 +26,15 @@ const schema = new Schema({
     },
     dataLancamento:{
         type : Date,
-        required:true,  
+        required:false,  
         default :Date.now
+    },
+    status:{
+        type: String,
+        required: true,
+        enum: ['Não Pago','Pendente','Pago'],
+        default : 'Pendente'
     }
 });
-module.exports = mongoose.model('CustomerFinancial', schema);
+module.exports = mongoose.model('FinanceiroCliente', schema);
+

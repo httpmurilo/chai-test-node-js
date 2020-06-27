@@ -1,12 +1,12 @@
 'use strict';
 
-const repository = require('../repositories/customer-repository');
+const repository = require('../repositories/pagdoc-repositorio');
 const ValidationContract = require('../validators/fluent-validator');
 
 
-exports.get = async(req, res, next) => {
+exports.buscar = async(req, res, next) => {
     try {
-        var data = await repository.get();
+        var data = await repository.buscar();
         res.status(200).send(data);
     } catch(e){
         res.status(500).send({
@@ -14,9 +14,9 @@ exports.get = async(req, res, next) => {
         });
     }
 }
-exports.getById = async(req, res, next) => {
+exports.buscarPorId = async(req, res, next) => {
     try {
-        var data = await repository.getById(req.params.id);
+        var data = await repository.buscarPorId(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -24,18 +24,11 @@ exports.getById = async(req, res, next) => {
         });
     }
 }
-exports.add = async (req, res, next) =>{
-    let contract = new ValidationContract();
-    contract.hasMinLen(req.body.nome, 3, 'O nome do cliente deve conter pelo menos 3 caracteres');
-
-    if (!contract.isValid()) {
-        res.status(400).send(contract.errors()).end();
-        return;
-    }
+exports.adicionar = async (req, res, next) =>{
     try {
-        await repository.add(req.body);
+        await repository.adicionar(req.body);
         res.status(201).send({
-            message: 'Cliente cadastrado co sucesso'
+            message: 'Documento cadastrado com sucesso!'
         });
     } catch (e) {
         console.log(e);
@@ -45,11 +38,11 @@ exports.add = async (req, res, next) =>{
     }
 };
 
-exports.delete = async(req, res, next) => {
+exports.deletar = async(req, res, next) => {
     try {
-        await repository.delete(req.params.id)
+        await repository.deletar(req.params.id)
         res.status(200).send({
-            message: 'Cliente removido com sucesso!'
+            message: 'Documento removido com sucesso!'
         });
     } catch (e) {
         res.status(500).send({
@@ -58,11 +51,11 @@ exports.delete = async(req, res, next) => {
     }
 };
 
-exports.update = async(req, res, next) => {
+exports.atualizar = async(req, res, next) => {
     try {
-        await repository.update(req.params.id, req.body);
+        await repository.atualizar(req.params.id, req.body);
         res.status(200).send({
-            message: 'Cliente foi atualizado com sucesso'
+            message: 'Documento atualizado!'
         });
     } catch (e) {
         res.status(500).send({

@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Tarefa = mongoose.model('Tarefa');
+const Tarefa = mongoose.model('Task');
 
 
 exports.buscar = async() => {

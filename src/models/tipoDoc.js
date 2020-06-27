@@ -11,5 +11,5 @@ const schema = new Schema({
     }
 });
 
-module.exports = mongoose.model('TipoDocumento', schema);
+module.exports = mongoose.model('TipoDoc', schema);
 

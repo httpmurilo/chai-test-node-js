@@ -1,21 +1,21 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Customer = mongoose.model('Customer');
+const Cliente = mongoose.model('Cliente');
 
 
-exports.get = async() => {
-   const res = await Customer.find({
+exports.obter = async() => {
+   const res = await Cliente.find({
 }, 'nome numeroDocumento ativo ');
         return res;
 }
 
-exports.getById = async (id) =>{
-   const res = await Customer
+exports.obterPorId = async (id) =>{
+   const res = await Cliente
         .findById(id);
     return res;
 }
-exports.getByName = async (nome) =>{
+exports.obterPorNome = async (nome) =>{
     const res =  await Cliente
         .find({
             nome: nome,
@@ -23,17 +23,17 @@ exports.getByName = async (nome) =>{
         return res;
  }
 
-exports.add = async (data) => {
-    var custumer = new Customer(data);
-    await custumer.save();
+exports.adicionar = async (data) => {
+    var cliente = new Cliente(data);
+    await cliente.save();
 }
 exports.deletar = async (id) =>{
-    await Customer
+    await Cliente
         .findOneAndRemove(id)
 }
 
-exports.update = async (id,data) => {
-    await  Customer
+exports.atualizar = async (id,data) => {
+    await  Cliente
          .findByIdAndUpdate(id,{
              $set:{
              nome: data.nome,

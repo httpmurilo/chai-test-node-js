@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const TipoDocumento = mongoose.model('TipoDocumento');
+const TipoDocumento = mongoose.model('TipoDoc');
 
 
 exports.buscar = async() => {

@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/pagdoc-controller');
+const controller = require('../controllers/tipo-tarefa-controlador');
 
 router.get('/', controller.buscar);
 router.get('/:id', controller.buscarPorId);

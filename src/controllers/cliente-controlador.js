@@ -1,12 +1,12 @@
 'use strict';
-const repository = require('../repositories/task-repository');
+
+const repository = require('../repositories/cliente-repositorio');
 const ValidationContract = require('../validators/fluent-validator');
 
 
-
-exports.buscar = async(req, res, next) => {
+exports.obter = async(req, res, next) => {
     try {
-        var data = await repository.buscar();
+        var data = await repository.obter();
         res.status(200).send(data);
     } catch(e){
         res.status(500).send({
@@ -14,9 +14,9 @@ exports.buscar = async(req, res, next) => {
         });
     }
 }
-exports.buscarPorId = async(req, res, next) => {
+exports.obterPorId = async(req, res, next) => {
     try {
-        var data = await repository.BuscarPorId(req.params.id);
+        var data = await repository.obterPorId(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -24,14 +24,18 @@ exports.buscarPorId = async(req, res, next) => {
         });
     }
 }
-
 exports.adicionar = async (req, res, next) =>{
     let contract = new ValidationContract();
-    contract.hasMinLen(req.body.nome, 3, 'O nome da tarefa deve conter pelo menos 3 caracteres');
+    contract.hasMinLen(req.body.nome, 3, 'O nome do cliente deve conter pelo menos 3 caracteres');
+
+    if (!contract.isValid()) {
+        res.status(400).send(contract.errors()).end();
+        return;
+    }
     try {
         await repository.adicionar(req.body);
         res.status(201).send({
-            message: 'Tarefa cadastrada com sucesso!'
+            message: 'Cliente cadastrado co sucesso'
         });
     } catch (e) {
         console.log(e);
@@ -45,7 +49,7 @@ exports.deletar = async(req, res, next) => {
     try {
         await repository.deletar(req.params.id)
         res.status(200).send({
-            message: 'Tarefa removida com sucesso!'
+            message: 'Cliente removido com sucesso!'
         });
     } catch (e) {
         res.status(500).send({
@@ -58,7 +62,7 @@ exports.atualizar = async(req, res, next) => {
     try {
         await repository.atualizar(req.params.id, req.body);
         res.status(200).send({
-            message: 'Tarefa atualizada com sucesso!'
+            message: 'Cliente foi atualizado com sucesso'
         });
     } catch (e) {
         res.status(500).send({

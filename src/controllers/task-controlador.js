@@ -1,7 +1,7 @@
 'use strict';
-
-const repository = require('../repositories/processo-parte-repository');
+const repository = require('../repositories/tarefa-repositorio');
 const ValidationContract = require('../validators/fluent-validator');
+
 
 
 exports.buscar = async(req, res, next) => {
@@ -14,9 +14,9 @@ exports.buscar = async(req, res, next) => {
         });
     }
 }
-exports.buscarPorNumeroOrndeador = async(req, res, next) => {
+exports.buscarPorId = async(req, res, next) => {
     try {
-        var data = await repository.buscarPorId(req.params.id);
+        var data = await repository.BuscarPorId(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
@@ -24,18 +24,14 @@ exports.buscarPorNumeroOrndeador = async(req, res, next) => {
         });
     }
 }
+
 exports.adicionar = async (req, res, next) =>{
     let contract = new ValidationContract();
-    contract.hasMinLen(req.body.nome, 3, 'O nome da parte deve conter pelo menos 3 caracteres');
-
-    if (!contract.isValid()) {
-        res.status(400).send(contract.errors()).end();
-        return;
-    }
+    contract.hasMinLen(req.body.nome, 3, 'O nome da tarefa deve conter pelo menos 3 caracteres');
     try {
         await repository.adicionar(req.body);
         res.status(201).send({
-            message: 'A parte foi  cadastrada co sucesso'
+            message: 'Tarefa cadastrada com sucesso!'
         });
     } catch (e) {
         console.log(e);
@@ -49,7 +45,7 @@ exports.deletar = async(req, res, next) => {
     try {
         await repository.deletar(req.params.id)
         res.status(200).send({
-            message: 'a parte foi  removido com sucesso!'
+            message: 'Tarefa removida com sucesso!'
         });
     } catch (e) {
         res.status(500).send({
@@ -62,7 +58,7 @@ exports.atualizar = async(req, res, next) => {
     try {
         await repository.atualizar(req.params.id, req.body);
         res.status(200).send({
-            message: 'a parte  foi atualizada com sucesso'
+            message: 'Tarefa atualizada com sucesso!'
         });
     } catch (e) {
         res.status(500).send({

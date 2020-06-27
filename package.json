@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/server.js",
+    "start": "npx nodemon ./bin/server.js",
     "test": "node node_modules/mocha/bin/mocha"
   },
   "keywords": [],
   "author": "",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "express-pino-logger": "^5.0.0",

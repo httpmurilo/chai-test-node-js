@@ -19,7 +19,7 @@ const schema = new Schema({
     },
     tipoDocumento: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'TipoDocumento'
+        ref: 'TypeDoc'
     },
 });
 

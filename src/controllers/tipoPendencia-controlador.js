@@ -1,10 +1,10 @@
 'use strict';
 
-const repository = require('../repositories/tipoPendencia-repository');
+const repository = require('../repositories/tipoPendencia-repositorio');
 const ValidationContract = require('../validators/fluent-validator');
 
 
-exports.get = async(req, res, next) => {
+exports.obter = async(req, res, next) => {
     try {
         var data = await repository.buscar();
         res.status(200).send(data);
@@ -14,7 +14,7 @@ exports.get = async(req, res, next) => {
         });
     }
 }
-exports.buscarPorId = async(req, res, next) => {
+exports.obterPorId = async(req, res, next) => {
     try {
         var data = await repository.buscarPorId(req.params.id);
         res.status(200).send(data);
@@ -25,7 +25,7 @@ exports.buscarPorId = async(req, res, next) => {
     }
 }
 
-exports.post = async (req, res, next) =>{
+exports.adicionar = async (req, res, next) =>{
     let contract = new ValidationContract();
     contract.hasMinLen(req.body.titulo, 3, 'O nome da pendência deve conter pelo menos 3 caracteres');
 
@@ -46,7 +46,7 @@ exports.post = async (req, res, next) =>{
     }
 };
 
-exports.delete = async(req, res, next) => {
+exports.deletar = async(req, res, next) => {
     try {
         await repository.deletar(req.params.id)
         res.status(200).send({
