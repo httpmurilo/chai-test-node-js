@@ -13,8 +13,3 @@ npm test
 
 Dados do MongoDB
 
-mongouser
-FAJ6coj1
-
-
-
